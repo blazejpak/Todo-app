@@ -22,22 +22,16 @@ const HomePage = () => {
     } else document.documentElement.classList.remove("dark");
   }, [isDarkTheme]);
 
-  const imageBg =
-    "before:absolute before:top-0 before:left-0 before:h-[200px] before:w-full  dark:before:bg-gradient-to-r dark:before:from-sky-900 dark:before:to-fuchsia-900  before:bg-gradient-to-r before:from-sky-500/70 before:to-fuchsia-500/70";
-
   return (
-    <>
-      <div className={` ${imageBg}`}></div>
-      <div className="relative flex flex-col items-center">
-        <Header />
-        <main className="flex w-80 flex-col gap-4 lg:w-[540px] ">
-          <Input />
-          <ListTodos />
-          <FilterTodos />
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="relative flex flex-col items-center">
+      <Header />
+      <main className="flex w-80 flex-col gap-4 lg:w-[540px] ">
+        <Input />
+        <ListTodos />
+        <FilterTodos />
+      </main>
+      <Footer />
+    </div>
   );
 };
 
