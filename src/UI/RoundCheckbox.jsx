@@ -14,7 +14,11 @@ const RoundCheckbox = ({ active, style }) => {
           active ? "bg-transparent" : "bg-white dark:bg-[#25273D]"
         }`}
       >
-        <img src={checked} className={`${active ? "" : "hidden"}`} />
+        <img
+          alt="check icon"
+          src={checked}
+          className={`${active ? "" : "hidden"}`}
+        />
       </div>
     </div>
   );
