@@ -1,21 +1,30 @@
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 import { useContext } from "react";
 import ContentContext from "../store/content-context";
 
 import ListTodo from "./ListTodo";
 
 const ListTodos = () => {
-  const { todos, clearCompletedTodos, typeFilter } = useContext(ContentContext);
+  const { todos, clearCompletedTodos, typeFilter, setTodos } =
+    useContext(ContentContext);
 
   let itemsOfTodo;
   if (typeFilter === "all") {
-    itemsOfTodo = todos.map((item) => <ListTodo key={item.id} item={item} />);
+    itemsOfTodo = todos.map((item, index) => (
+      <ListTodo id={item.id} key={item.id} item={item} index={index} />
+    ));
   } else if (typeFilter === "completed") {
     itemsOfTodo = todos
-      .map((item) => <ListTodo key={item.id} item={item} />)
+      .map((item, index) => (
+        <ListTodo id={item.id} key={item.id} item={item} index={index} />
+      ))
       .filter((item) => item.props.item.completed === true);
   } else if (typeFilter === "active") {
     itemsOfTodo = todos
-      .map((item) => <ListTodo key={item.id} item={item} />)
+      .map((item, index) => (
+        <ListTodo id={item.id} key={item.id} item={item} index={index} />
+      ))
       .filter((item) => item.props.item.completed === false);
   }
 
@@ -23,16 +32,45 @@ const ListTodos = () => {
     clearCompletedTodos();
   };
 
+  const dropTodoHandler = (result) => {
+    const { source, destination } = result;
+
+    if (!destination) return;
+
+    const reorderedTodos = [...todos];
+
+    const sourceIndex = source.index;
+    const destinationIndex = destination.index;
+
+    const [removedTodo] = reorderedTodos.splice(sourceIndex, 1);
+    reorderedTodos.splice(destinationIndex, 0, removedTodo);
+
+    return setTodos(reorderedTodos);
+  };
+
   return (
-    <section className="shadow-md h-96 bg-white rounded flex flex-col">
-      <ul className="flex flex-col w-full  h-full divide-y divide-gray-[#E3E4F1] ">
-        {itemsOfTodo}
-        <div className="h-[1px] w-full bg-[#E3E4F1] "></div>
-      </ul>
-      <div className="w-full py-3 px-5 min-h-[52px] text-[#9495A5] text-xs flex justify-between">
-        <p>{todos.length} items left</p>
+    <section className=" lg-[440px] flex h-96 flex-col overflow-hidden rounded-md bg-white shadow-md dark:bg-[#25273D]">
+      <DragDropContext onDragEnd={dropTodoHandler}>
+        <Droppable droppableId="droppable-1">
+          {(provided) => (
+            <ul
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className="divide-gray-[#E3E4F1] flex h-full w-full flex-col  divide-y overflow-auto scrollbar scrollbar-track-gray-100 scrollbar-thumb-sky-700 scrollbar-thumb-rounded-md scrollbar-w-3 hover:scrollbar-thumb-sky-800 active:scrollbar-thumb-sky-900 dark:divide-gray-500/40 dark:scrollbar-track-[#25273D] dark:scrollbar-thumb-purple-700 hover:dark:scrollbar-thumb-purple-800 active:dark:scrollbar-thumb-purple-900"
+            >
+              {itemsOfTodo}
+              <div className="h-[1px] w-full bg-[#E3E4F1] dark:bg-[#25273D] "></div>
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
+      <div className="flex min-h-[52px] w-full items-center justify-between border-t border-[#E3E4F1] px-5 py-3 text-xs text-[#9495A5]  dark:border-gray-500/40 dark:text-[#5B5E7E] lg:text-sm">
+        <p>
+          {todos.filter((todo) => todo.completed === false).length} items left
+        </p>
         <p
-          className="cursor-pointer hover:scale-105 transition-all duration-300"
+          className="cursor-pointer transition-all duration-300 hover:scale-105"
           onClick={clearCompletedHandler}
         >
           Clear Completed

@@ -53,6 +53,7 @@ export const ContentProvider = ({ children }) => {
         todos,
         completedTodo,
         clearCompletedTodos,
+        setTodos,
       }}
     >
       {children}

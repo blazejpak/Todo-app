@@ -5,7 +5,9 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 function App() {
   return (
     <ContentProvider>
-      <HomePage />
+      <div className=" max-h-full min-h-screen bg-[#fafafa] dark:bg-[#171823]">
+        <HomePage />
+      </div>
     </ContentProvider>
   );
 }

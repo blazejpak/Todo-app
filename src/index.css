@@ -6,23 +6,3 @@ html {
   font-family: "Josefin Sans";
   color: #494c6b;
 }
-
-body {
-  position: relative;
-  min-height: 100vh;
-  max-height: 100%;
-  background-color: #fafafa;
-  z-index: -2;
-}
-
-body::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  background-image: url("./assets/images/bg-mobile-light.jpg");
-  background-repeat: no-repeat;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-}

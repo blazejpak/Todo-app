@@ -12,8 +12,8 @@ const Header = () => {
   };
 
   return (
-    <header className="flex mx-auto w-80 justify-between items-center py-12">
-      <h1 className="uppercase tracking-[0.5em] text-xl font-bold text-white ">
+    <header className="mx-auto flex w-80 items-center justify-between pb-8 pt-12 lg:w-[540px]">
+      <h1 className="text-xl font-bold uppercase tracking-[0.5em] text-white lg:text-[40px] ">
         todo
       </h1>
       {!isDarkTheme ? (
@@ -21,14 +21,14 @@ const Header = () => {
           src={Moon}
           alt="Moon Icon"
           onClick={changeThemeHandler}
-          className="cursor-pointer hover:scale-105 transition-all duration-300"
+          className="cursor-pointer transition-all duration-300 hover:scale-105"
         />
       ) : (
         <img
           src={Sun}
           alt="Sun Icon"
           onClick={changeThemeHandler}
-          className="cursor-pointer hover:scale-105 duration-300"
+          className="cursor-pointer duration-300 hover:scale-105"
         />
       )}
     </header>

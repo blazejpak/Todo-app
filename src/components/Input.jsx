@@ -19,14 +19,14 @@ const Input = () => {
 
   return (
     <form
-      className="shadow h-12 flex bg-white rounded py-3 px-5  items-center gap-3 "
+      className="flex h-12 items-center gap-3 rounded-md bg-white  px-5 py-3  shadow dark:bg-[#25273D] lg:h-16"
       onSubmit={handleSubmit}
     >
       <RoundCheckbox />
       <input
         type="text"
         value={value}
-        className="w-auto bg-transparent placeholder:text-xs placeholder:tracking-tight text-base placeholder:text-[#9495A5] outline-none text-[#494C6B]"
+        className="w-auto bg-transparent text-base text-[#494C6B] outline-none placeholder:text-xs placeholder:tracking-tight placeholder:text-[#9495A5] dark:text-[#C8CBE7] lg:text-lg lg:placeholder:text-lg"
         placeholder="Create a new todo..."
         onChange={(e) => setValue(e.target.value)}
       />

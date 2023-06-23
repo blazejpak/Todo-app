@@ -5,12 +5,12 @@ const FilterTodos = () => {
   const { filterTodos, typeFilter } = useContext(ContentContext);
 
   return (
-    <div className="flex h-12 w-full bg-white rounded gap-5 justify-center items-center text-sm text-[#9495A5] font-bold ">
+    <div className="flex h-12 w-full items-center justify-center gap-5 rounded bg-white text-sm font-bold text-[#9495A5] dark:bg-[#25273D] ">
       <p
         onClick={() => filterTodos("all")}
         className={`${
           typeFilter === "all" ? "text-[#3A7CFD]" : ""
-        } cursor-pointer caret-transparent hover:scale-105 transition-all duration-300`}
+        } cursor-pointer caret-transparent transition-all duration-300 hover:scale-105`}
       >
         All
       </p>
@@ -18,7 +18,7 @@ const FilterTodos = () => {
         onClick={() => filterTodos("active")}
         className={`${
           typeFilter === "active" ? "text-[#3A7CFD]" : ""
-        } cursor-pointer caret-transparent hover:scale-105 transition-all duration-300`}
+        } cursor-pointer caret-transparent transition-all duration-300 hover:scale-105`}
       >
         Active
       </p>
@@ -26,7 +26,7 @@ const FilterTodos = () => {
         onClick={() => filterTodos("completed")}
         className={`${
           typeFilter === "completed" ? "text-[#3A7CFD]" : ""
-        } cursor-pointer caret-transparent hover:scale-105 transition-all duration-300`}
+        } cursor-pointer caret-transparent transition-all duration-300 hover:scale-105`}
       >
         Completed
       </p>

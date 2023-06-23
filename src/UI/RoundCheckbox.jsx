@@ -4,12 +4,14 @@ const RoundCheckbox = ({ active, style }) => {
   return (
     <div
       className={`${
-        active ? "bg-gradient-to-r from-[#55DDFF] to-[#C058F3]" : "bg-[#E3E4F1]"
-      } caret-transparent h-5 w-5  rounded-full ${style}   p-[1px]`}
+        active
+          ? "bg-gradient-to-r from-[#55DDFF] to-[#C058F3]"
+          : "bg-[#E3E4F1] dark:bg-opacity-20"
+      } h-5 w-5 rounded-full  caret-transparent ${style}   p-[1px]`}
     >
       <div
-        className={`h-full rounded-full w-full flex justify-center items-center  ${
-          active ? "bg-transparent" : "bg-white"
+        className={`flex h-full w-full items-center justify-center rounded-full  ${
+          active ? "bg-transparent" : "bg-white dark:bg-[#25273D]"
         }`}
       >
         <img src={checked} className={`${active ? "" : "hidden"}`} />
