@@ -65,15 +65,15 @@ const ListTodos = () => {
         </Droppable>
       </DragDropContext>
       <div className="flex min-h-[52px] w-full items-center justify-between border-t border-[#E3E4F1] px-5 py-3 text-xs text-[#9495A5]  dark:border-gray-500/40 dark:text-[#5B5E7E] lg:text-sm">
-        <h3>
+        <h2>
           {todos.filter((todo) => todo.completed === false).length} items left
-        </h3>
-        <h3
+        </h2>
+        <h2
           className="cursor-pointer transition-all duration-300 hover:scale-105"
           onClick={clearCompletedHandler}
         >
           Clear Completed
-        </h3>
+        </h2>
       </div>
     </section>
   );
