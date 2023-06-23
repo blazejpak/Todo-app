@@ -59,7 +59,6 @@ const ListTodos = () => {
               className="divide-gray-[#E3E4F1] flex h-full w-full flex-col  divide-y overflow-auto scrollbar scrollbar-track-gray-100 scrollbar-thumb-sky-700 scrollbar-thumb-rounded-md scrollbar-w-3 hover:scrollbar-thumb-sky-800 active:scrollbar-thumb-sky-900 dark:divide-gray-500/40 dark:scrollbar-track-[#25273D] dark:scrollbar-thumb-purple-700 hover:dark:scrollbar-thumb-purple-800 active:dark:scrollbar-thumb-purple-900"
             >
               {itemsOfTodo}
-              <div className="h-[1px] w-full bg-[#E3E4F1] dark:bg-[#25273D] "></div>
               {provided.placeholder}
             </ul>
           )}

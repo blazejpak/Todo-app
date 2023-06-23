@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <>
       <div className={` ${imageBg}`}></div>
-      <div className="relative z-20 flex flex-col items-center">
+      <div className="relative flex flex-col items-center">
         <Header />
         <main className="flex w-80 flex-col gap-4 lg:w-[540px] ">
           <Input />
