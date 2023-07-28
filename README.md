@@ -2,9 +2,9 @@
 
 Classic Todo App with some extra features.
 
-* You can pick a theme between dark and light mode,
+* You can pick a theme between dark and light modes,
 * Added states like Active and Completed so you can easily filter todos,
-* Drag and drop, change the order of todos as you prefer.
+* Drag and drop; change the order of todos as you prefer.
 
 
 
